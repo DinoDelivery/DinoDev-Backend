@@ -11,5 +11,5 @@ create table dish
     type        varchar,
     photo       varchar,
     price       money,
-    ingredients varchar
+    ingredients varchar[]
 );

@@ -1,4 +1,4 @@
-create table review_restaurant
+CREATE TABLE review_restaurant
 (
     id            serial  not null
         constraint review_restaurant_pk
