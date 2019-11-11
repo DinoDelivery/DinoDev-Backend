@@ -4,21 +4,15 @@ import com.dinodelivery.project.object.User;
 import com.dinodelivery.project.object.dto.UserDto;
 import com.dinodelivery.project.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
 
-@Service
 public class UserService {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository,
-                       PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository) {
 
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
     }
 
     public void register(UserDto userDto) {
@@ -27,16 +21,16 @@ public class UserService {
         user.setId(id);
     }
 
-    public User getUserByEmail(String email) {
-        return userRepository.getUserByEmail(email);
+    public User getUserByPhoneNumber(String phoneNumber) {
+        return userRepository.getUserByPhoneNumber(phoneNumber);
     }
 
     private User createUser(UserDto userDto) {
         User user = new User();
         user.setFirstName(userDto.getFirstName());
         user.setLastName(userDto.getLastName());
-        user.setEmail(userDto.getEmail());
-        user.setPasswordHash(passwordEncoder.encode(userDto.getPassword()));
+        user.setPhoneNumber(userDto.getPhoneNumber());
+        user.setPassword(userDto.getPassword());
 
         return user;
     }
