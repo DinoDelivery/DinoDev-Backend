@@ -4,7 +4,9 @@ import com.dinodelivery.project.object.User;
 import com.dinodelivery.project.object.dto.UserDto;
 import com.dinodelivery.project.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService {
 
     private final UserRepository userRepository;

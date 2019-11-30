@@ -21,6 +21,7 @@ public class Restaurant {
     private String link;
 
     @Column(name = "reviews")
+    @ElementCollection(targetClass=String.class)
     private List<String> reviews;
 
     @Column(name = "description")
@@ -40,6 +41,9 @@ public class Restaurant {
 
     @Column(name = "workhours")
     private String workHours;
+
+    @Column(name = "restaurant_phone_number")
+    private String restaurantPhoneNumber;
 
     public int getId() {
         return id;
@@ -127,5 +131,13 @@ public class Restaurant {
 
     public void setWorkHours(String workHours) {
         this.workHours = workHours;
+    }
+
+    public String getRestaurantPhoneNumber() {
+        return restaurantPhoneNumber;
+    }
+
+    public void setRestaurantPhoneNumber(String restaurantPhoneNumber) {
+        this.restaurantPhoneNumber = restaurantPhoneNumber;
     }
 }

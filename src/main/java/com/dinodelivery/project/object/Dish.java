@@ -18,6 +18,7 @@ public class Dish {
     private int rating;
 
     @Column(name = "reviews")
+    @ElementCollection(targetClass=String.class)
     private List<String> reviews;
 
     @Column(name = "description")
@@ -36,6 +37,7 @@ public class Dish {
     private double price;
 
     @Column(name = "ingredients")
+    @ElementCollection(targetClass=String.class)
     private List<String> ingredients;
 
     public int getId() {
