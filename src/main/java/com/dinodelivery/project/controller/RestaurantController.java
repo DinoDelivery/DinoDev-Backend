@@ -8,10 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public class RestaurantController {
@@ -22,22 +20,15 @@ public class RestaurantController {
         this.restaurantService = restaurantService;
     }
 
-    @PostMapping("/restautant")
-    public List<Object> getRestaurant(@Valid @RequestBody String name) {
-        Restaurant res = restaurantService.getRestaurantByName(name);
+    @PostMapping("/restaurant")
+    public List<Object> getRestaurant(@Valid @RequestBody Integer id) {
+        Restaurant res = restaurantService.getRestaurantById(id);
         return getRes(res);
     }
 
-    @PostMapping("/restautants")
-    public Map<Integer,Object> getRestaurants(@Valid @RequestBody String name) {
-        Map restaurants = new HashMap();
-
-        return restaurants;
-    }
-
     private List<Object> getRes(Restaurant res) {
-        if (!res.getName().isEmpty()) {
-            List<Object> toUpload = new LinkedList<>();
+        List<Object> toUpload = new LinkedList<>();
+        try {
             toUpload.add(res.getId());
             toUpload.add(res.getName());
             toUpload.add(res.getCuisine());
@@ -49,10 +40,12 @@ public class RestaurantController {
             toUpload.add(res.getRating());
             toUpload.add(res.getRestaurantPhoneNumber());
             toUpload.add(res.getWorkHours());
-            toUpload.add(res.getReviews());//must return array of review
+            toUpload.add(res.getReviews().toString());
             return toUpload;
-        } else {
-            throw new NullPointerException("Not found restaurant by name!");
+        } catch (Exception e) {
+            System.out.println(e.fillInStackTrace() + ": getting Restaurant exception!");
         }
+
+        return toUpload;
     }
 }

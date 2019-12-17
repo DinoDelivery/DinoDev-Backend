@@ -5,19 +5,18 @@ import javax.persistence.*;
 @Entity
 @Table(name = "order")
 public class Order {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
 
     @Column(name = "user_id")
-    private int userId;
+    private String userId;
 
     @Column(name = "price")
-    private int price;
+    private String price;
 
     @Column(name = "card_payment")
-    private boolean cardPayment;
+    private Boolean cardPayment;
 
     @Column(name = "delivery_date")
     private String deliveryDate;
@@ -26,41 +25,49 @@ public class Order {
     private String address;
 
     @Column(name = "is_complete")
-    private boolean isComplete;
+    private Boolean isComplete;
 
     @Column(name = "client_phone_number")
-    private boolean clientPhoneNumber;
+    private String clientPhoneNumber;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public boolean isCardPayment() {
+    public Boolean isCardPayment() {
         return cardPayment;
     }
 
-    public void setCardPayment(boolean cardPayment) {
+    public void setCardPayment(Boolean cardPayment) {
         this.cardPayment = cardPayment;
+    }
+
+    public String getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public void setDeliveryDate(String deliveryDate) {
+        this.deliveryDate = deliveryDate;
     }
 
     public String getAddress() {
@@ -71,19 +78,19 @@ public class Order {
         this.address = address;
     }
 
-    public boolean isComplete() {
+    public Boolean isComplete() {
         return isComplete;
     }
 
-    public void setComplete(boolean complete) {
+    public void setComplete(Boolean complete) {
         isComplete = complete;
     }
 
-    public boolean isClientPhoneNumber() {
+    public String  getClientPhoneNumber() {
         return clientPhoneNumber;
     }
 
-    public void setClientPhoneNumber(boolean clientPhoneNumber) {
+    public void setClientPhoneNumber(String clientPhoneNumber) {
         this.clientPhoneNumber = clientPhoneNumber;
     }
 }

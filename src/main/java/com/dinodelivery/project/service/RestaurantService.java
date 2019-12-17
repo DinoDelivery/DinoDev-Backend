@@ -14,7 +14,7 @@ public class RestaurantService {
         this.restaurantRepository = restaurantRepository;
     }
 
-    public Restaurant getRestaurantByName(String name) {
-        return restaurantRepository.getRestaurantByName(name);
+    public Restaurant getRestaurantById(Integer id) {
+        return restaurantRepository.getRestaurantById(id);
     }
 }

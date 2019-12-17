@@ -6,16 +6,15 @@ import java.util.List;
 @Entity
 @Table(name = "restaurant")
 public class Restaurant {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "rating")
-    private int rating;
+    private String rating;
 
     @Column(name = "link")
     private String link;
@@ -31,12 +30,12 @@ public class Restaurant {
     private String photo;
 
     @Column(name = "long")
-    private double coordinateLong;
+    private String coordinateLong;
 
     @Column(name = "lat")
-    private double coordinateLat;
+    private String coordinateLat;
 
-    @Column(name = "id_dish")
+    @Column(name = "dish_id")
     private String cuisine;
 
     @Column(name = "workhours")
@@ -45,11 +44,11 @@ public class Restaurant {
     @Column(name = "restaurant_phone_number")
     private String restaurantPhoneNumber;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -61,19 +60,19 @@ public class Restaurant {
         this.cuisine = cuisine;
     }
 
-    public double getCoordinateLat() {
+    public String getCoordinateLat() {
         return coordinateLat;
     }
 
-    public void setCoordinateLat(double coordinateLat) {
+    public void setCoordinateLat(String coordinateLat) {
         this.coordinateLat = coordinateLat;
     }
 
-    public double getCoordinateLong() {
+    public String getCoordinateLong() {
         return coordinateLong;
     }
 
-    public void setCoordinateLong(double coordinateLong) {
+    public void setCoordinateLong(String coordinateLong) {
         this.coordinateLong = coordinateLong;
     }
 
@@ -109,11 +108,11 @@ public class Restaurant {
         this.link = link;
     }
 
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 

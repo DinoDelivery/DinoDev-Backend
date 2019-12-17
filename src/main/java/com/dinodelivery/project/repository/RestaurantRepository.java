@@ -10,16 +10,14 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class RestaurantRepository {
-
     private final SessionFactory sessionFactory;
 
     @Autowired
     public RestaurantRepository(SessionFactory sessionFactory) {
-
         this.sessionFactory = sessionFactory;
     }
 
-    public Restaurant getRestaurantByName(String name) {
+    public Restaurant getRestaurantById(Integer id) {
         Session session;
         try {
             session = sessionFactory.getCurrentSession();
@@ -28,7 +26,7 @@ public class RestaurantRepository {
         }
         return (Restaurant) session
                 .createQuery("select * from restaurant where name = :name")
-                .setParameter("name", name).uniqueResult();
+                .setParameter("Id", id).uniqueResult();
     }
 
     public Dish getDishesByRestaurantId(Integer resId) {
